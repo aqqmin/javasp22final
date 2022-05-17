@@ -8,7 +8,7 @@ public class Battle
 	Monster monster;
 	boolean battling = true;
 	World world;
-	
+
 	Battle(Player player, Monster monster)
 	{
 		this.player = player;
@@ -18,8 +18,8 @@ public class Battle
 	{
 		while (battling)
 		{
-			PlayerTurn();			
-			MonsterTurn();			
+			PlayerTurn();
+			MonsterTurn();
 		}
 		player.Use(monster.gem);
 		return player;
@@ -31,18 +31,23 @@ public class Battle
 		Utility.printer.PrintStat(this.player);
 		Utility.printer.PrintFile(BatFrameBot.txt);
 		int choiceCode = RandNumGen(0,2);
-		if (choiceCode = 0)
+
+
+		switch (choiceCode) //Monsters controller interface
 		{
+		case 0:
 			Attack(this.monster, this.player);
-		}
-		if (choiceCode = 1)
-		{
+			break;
+
+		case 1:
 			Defend(player);
-		}
-		if (choiceCode = 2)
-		{
+			break;
+
+			case 2:
 			MonsterAbility(monster);
+			break;
 		}
+
 		if (this.player.getHp() <= 0 )
 		{
 			GameOver();
@@ -58,19 +63,23 @@ public class Battle
 		Utility.printer.PrintStat(this.monster);
 		Utility.printer.PrintStat(this.player);
 		Utility.printer.PrintFile(BatFrameBot.txt);
-		int choiceCode = Utility.menu.BatMenu();
-		if (choiceCode = 0)
+
+		int choiceCode = Utility.menu.BatMenu("0==[ [1] attack  [2] defend  [3] use ability ==>");
+		//BatMenu prints a prompt and returns an int, which is saved in choiceCode
+
+		case (choiceCode) //player control interface
 		{
+		case 1:
 			Attack(this.player, this.monster);
-		}
-		if (choiceCode = 1)
-		{
+			break;
+		case 2:
 			Defend(player);
-		}
-		if (choiceCode = 2)
-		{
+			break;
+		case 3:
 			PlayerAbility(player, Utility.menu.AbilityMenu(player));
+			break;
 		}
+
 		if (this.player.getHp() <= 0 )
 		{
 			GameOver();

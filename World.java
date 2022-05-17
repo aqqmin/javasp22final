@@ -1,7 +1,9 @@
 package monsterdungeon;
 
 
-public class World extends Utility 
+import static monsterdungeon.Printer.RandMonGen;
+
+public class World extends Utility
 {
 	
 	Player player = new Player(10, 10, 10, 10, 10, 10);
