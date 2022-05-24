@@ -60,24 +60,38 @@ public class Utility extends Game
 		}
 		void PrintStat(Character character)
 		{
-
+			System.out.println("HP: " + character.gethp());
+			System.out.println("Stamina: " + character.getstam());
+			System.out.println("Mana: " + character.getMan());
 		}
 
 	}
 	//we will need a method for generating a random int within a range
-	static int RandNumGen(int floor, int celing)
-	{
+	static int RandNumGen(int min, int max)
+		{
+			int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+			return random_int;
+		}
 
-	}
+		static Monster RandMonGen()
+		{
+			int maxHP = RandNumGen(1, 100);
+			int maxStam = RandNumGen(1, 100);
+			int maxMana = RandNumGen(1, 100);
+			Monster newMonster = new Monster(maxHP, maxStam, maxMana);
+			return newMonster;
+		}
 
-	static Monster RandMonGen()
-	{
-
-	}
-
-	static Item RandItemGen()
-	{
-
-	}
+		static Gem RandGemGen()
+		{
+			int hp = RandNumGen(1, 100);
+			int stam = RandNumGen(1, 100);
+			int mana = RandNumGen(1, 100);
+			Gem newGem = new Gem();
+			newGem.setHP(hp);
+			newGem.setStam(stam);
+			newGem.setMana(mana);
+			return newGem;
+		}
 
 }
