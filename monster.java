@@ -12,7 +12,8 @@ public class Monster {
     //write in an array function
     String name;
 
-    public Monster(int mons) {
+    public Monster(int mons)
+    {
 
         switch(mons) {
              //Mons will insitatie base stats based on a randomized integer passed to it
