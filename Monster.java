@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Monster {
+public class Monster { //kenna's monster class
 
     private int HP;
     private int mana;
