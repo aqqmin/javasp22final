@@ -1,16 +1,11 @@
-package monsterdungeon;
+package dungeonzero;
 
-public class Monster extends Character 
-{
-	Gem prize;
-	Monster(int hpMax, int stamMax, int manMax)
+public class Monster extends Character {
+	Monster(String name, int maxHp, int maxMana, int maxStam, Ability[] abilities)
 	{
-		this.hpMax = hpMax;
-		this.hp = hpMax;
-		this.stamMax = stamMax;
-		this.stam = stamMax;
-		this.manMax = manMax;
-		this.mana = manMax;
-		prize = new Gem(this);
+		super(name, maxHp, maxMana, maxStam, abilities);
 	}
+	
+	
+
 }

@@ -1,38 +1,24 @@
-package monsterdungeon;
-import monsterdungeon.Character;
-public class Player extends Character 
-{
+package dungeonzero;
+
+public class Player extends Character {
 	
-	Player(int hpMax, int hp, int stamMax, int stam, int manMax, int mana)
+	
+	
+	Player(String name, int maxHp, int maxMana, int maxStam, Ability[] abilities)
 	{
-		this.hpMax = hpMax;
-		this.hp = hp;
-		this.stamMax = stamMax;
-		this.stam = stam;
-		this.manMax = manMax;
-		this.mana = mana;
+		super(name, maxHp, maxMana, maxStam, abilities);
 	}
-	
-	public void Use(Gem gem)
+	public void UseGem(Gem gem)
 	{
-		if(gem.bigGem == false)
+		switch(gem.getType())
 		{
-			this.hp += gem.hp;
-			this.stam += gem.stam;
-			this.mana += gem.mana;
-		}
-		if(gem.fullHeal)
-		{
-			this.hp=this.hpMax;
-			this.stam=this.stamMax;
-			this.mana=this.manMax;
-		}
-		else
-		{
-			this.hpMax += gem.hp;
-			this.stamMax += gem.stam;
-			this.manMax += gem.mana;
+		case 0:
+			super.setMaxHp(maxHp+gem.getHp());
+		case 1:
+			super.setMaxMana(maxMana+gem.getMana());
+		case 2:
+			super.setMaxStam(maxStam+gem.getStam());
 		}
 	}
-	
+
 }

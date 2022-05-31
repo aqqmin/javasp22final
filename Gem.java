@@ -1,17 +1,33 @@
-package monsterdungeon;
+package dungeonzero;
 
-public class Gem extends World {
+public class Gem {
 	int hp;
 	int stam;
 	int mana;
-	boolean fullHeal;
-	boolean bigGem;
+	int type;
 
 	Gem(Monster monster)
 	{
-		this.hp = monster.hp / 3;
-		this.stam = monster.stam / 7;
-		this.mana = monster.mana / 7;
+		hp = monster.getHp() / 3;
+		stam = monster.getStam() / 5;
+		mana = monster.getMana() / 5;
+		type = Utility.randGen.Generate(0, 3);
 	}
-	
+
+	public int getHp() {
+		return hp;
+	}
+
+	public int getStam() {
+		return stam;
+	}
+
+	public int getMana() {
+		return mana;
+	}
+
+	public int getType() {
+		return type;
+	}
+
 }
