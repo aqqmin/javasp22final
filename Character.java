@@ -17,14 +17,14 @@ public class Character {
 		this.maxHp = maxHp;
 		this.maxMana = maxMana;
 		this.maxStam = maxStam;
-		this.maxHp = maxHp;
+		this.hp = maxHp;
 		this.mana = maxMana;
 		this.stam = maxStam;
 		this.abilities = abilities;
-		this.outputInfo = OutputInfo();
+		//this.outputInfo = OutputInfo();
 	}
 	
-	public String[] OutputInfo()
+	/*public String[] OutputInfo()
 	{	
 		String abilitiesString = "";
 		for(int i = 0; i < abilities.length; i++)
@@ -34,7 +34,7 @@ public class Character {
 		String[] info = {this.name, Integer.toString(this.hp), Integer.toString(this.maxHp), Integer.toString(this.mana), Integer.toString(this.maxMana), Integer.toString(this.stam), Integer.toString(this.maxStam), abilitiesString};
 		return info;
 	}
-
+*/
 	public String getName() {
 		return name;
 	}
@@ -88,18 +88,27 @@ public class Character {
 	}
 
 	public void setHp(int hp) {
-		this.hp = hp;
+		if(hp<this.maxHp){this.hp = hp;}
+		if(hp>=this.maxHp) {this.hp=this.maxHp;}
 	}
 
 	public void setMana(int mana) {
-		this.mana = mana;
+		if(mana<this.maxMana){this.mana = mana;}
+		if(mana>=this.maxMana) {this.mana=this.maxMana;}
 	}
 
 	public void setStam(int stam) {
-		this.stam = stam;
-	}
+		if(stam<this.maxStam){this.stam = stam;}
+		if(stam>=this.maxStam) {this.stam=this.maxStam;}
+		}
 
 	public void setAbilities(Ability[] abilities) {
 		this.abilities = abilities;
+	}
+	public void fullRestore()
+	{
+		this.hp = this.maxHp;
+		this.mana = this.maxMana;
+		this.stam = this.maxStam;
 	}
 }

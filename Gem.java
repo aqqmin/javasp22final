@@ -8,10 +8,18 @@ public class Gem {
 
 	Gem(Monster monster)
 	{
-		hp = monster.getHp() / 3;
-		stam = monster.getStam() / 5;
-		mana = monster.getMana() / 5;
-		type = Utility.randGen.Generate(0, 3);
+		hp = monster.getMaxHp() / 3;
+		stam = monster.getMaxStam() / 5;
+		mana = monster.getMaxMana() / 5;
+		type = 0;//Random.RandInt(0, 3);
+	}
+	
+	Gem(int hp, int mana, int stam, int type)
+	{
+		this.hp = hp;
+		this.mana = mana;
+		this.stam = stam;
+		this.type = type;
 	}
 
 	public int getHp() {
